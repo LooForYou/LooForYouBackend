@@ -45,4 +45,12 @@ $ ssh -i looforyou.pem ubuntu@ec2-18-144-72-20.us-west-1.compute.amazonaws.com
 * For Port type **22**
 * Press **Quickconnect** button 
 
-
+**To save your login without having to type it in every time, go to File > Site Manager**
+* Click on **New Site**
+* Name it with a name of your choice
+* In the Host box, type in **ubuntu@ec2-18-144-72-20.us-west-1.compute.amazonaws.com**
+* Enter **22** for port
+* Choose **SFTP** for Protocol
+* Choose **Interactive** for Login Type
+* Enter **ubuntu** for user
+* Now every time you need to log in, go to the Site Manager Dropdown menu (located under File) and click on the saved site to connect
