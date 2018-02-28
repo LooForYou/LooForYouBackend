@@ -33,4 +33,16 @@ $ ssh -i looforyou.pem ubuntu@ec2-18-144-72-20.us-west-1.compute.amazonaws.com
 * Make sure SSH is selected on connection type
 * Click open
 
+### Using Filezilla
+
+* On Filezilla, under the **Edit** tab, click on **Settings**
+* Select **SFTP** 
+* On SFTP page, press **Add key file** button
+* Locate **looforyou.ppk** file, and open it
+* Press ok
+* For Host type **ec2-18-144-72-20.us-west-1.compute.amazonaws.com**
+* For Username type **ubuntu**
+* For Port type **22**
+* Press **Quickconnect** button 
+
 
