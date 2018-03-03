@@ -1,7 +1,7 @@
 # LooForYouBackend
 #### This is the repository for backend server code
 
-public ip: 18.144.72.20:9000
+public ip: 18.144.72.20
 
 
 ----
