@@ -1,0 +1,28 @@
+{
+  "name": "Bathroom",
+  "plural": "Bathrooms",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "numberOfStalls": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "numberOfSinks": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
