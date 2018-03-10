@@ -18,7 +18,7 @@ _For Loopback server:_
 ```
 $ chown :root LooForYouLoopback.pem
 $ chmod 600 LooForYouLoopback.pem
-$ ssh -i LooForYouLoopback.pem ubuntu@ec2-18-144-72-20.us-west-1.compute.amazonaws.com
+$ ssh -i LooForYouLoopback.pem ubuntu@ec2-54-183-105-234.us-west-1.compute.amazonaws.com
 ```
 
 _For Mongo server:_
