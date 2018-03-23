@@ -1,3 +1,47 @@
+<<<<<<< HEAD
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Bathroom": {
+    "dataSource": "db",
+    "public": true
+  }
+}
+=======
 {
   "_meta": {
     "sources": [
@@ -49,3 +93,4 @@
     "public": true
   }
 }
+>>>>>>> 86cc5137946facef227554835d254ec20bbed97f
