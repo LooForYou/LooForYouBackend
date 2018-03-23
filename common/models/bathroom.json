@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "Bathroom",
   "plural": "Bathrooms",
@@ -26,3 +27,69 @@
   "acls": [],
   "methods": {}
 }
+=======
+{
+  "name": "Bathroom",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "rating": {
+      "type": "number"
+    },
+    "clean_rating": {
+      "type": "number"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "address": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "date"
+    },
+    "end_time": {
+      "type": "date"
+    },
+    "maintenance_start": {
+      "type": "date"
+    },
+    "maintenance_end": {
+      "type": "date"
+    },
+    "maintenance_days": {
+      "type": "string"
+    },
+    "bookmarked": {
+      "type": "boolean"
+    },
+    "amenities": {
+      "type": [
+        "string"
+      ]
+    },
+    "descriptions": {
+      "type": [
+        "string"
+      ]
+    },
+    "image_url": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
+>>>>>>> 86cc5137946facef227554835d254ec20bbed97f

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "_meta": {
     "sources": [
@@ -40,3 +41,56 @@
     "public": true
   }
 }
+=======
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "looforyou_ds",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Account": {
+    "dataSource": "looforyou_ds",
+    "public": true
+  },
+  "Container": {
+    "dataSource": "amazonS3",
+    "public": true
+  },
+  "Bathroom": {
+    "dataSource": "looforyou_ds",
+    "public": true
+  }
+}
+>>>>>>> 86cc5137946facef227554835d254ec20bbed97f
