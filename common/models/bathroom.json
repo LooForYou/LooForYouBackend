@@ -1,6 +1,5 @@
 {
   "name": "Bathroom",
-  "plural": "Bathrooms",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,14 +10,51 @@
       "type": "string",
       "required": true
     },
-    "numberOfStalls": {
-      "type": "number",
-      "required": true,
-      "default": 1
+    "rating": {
+      "type": "number"
     },
-    "numberOfSinks": {
-      "type": "number",
-      "default": 1
+    "clean_rating": {
+      "type": "number"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "address": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "date"
+    },
+    "end_time": {
+      "type": "date"
+    },
+    "maintenance_start": {
+      "type": "date"
+    },
+    "maintenance_end": {
+      "type": "date"
+    },
+    "maintenance_days": {
+      "type": "string"
+    },
+    "bookmarked": {
+      "type": "boolean"
+    },
+    "amenities": {
+      "type": [
+        "string"
+      ]
+    },
+    "descriptions": {
+      "type": [
+        "string"
+      ]
+    },
+    "image_url": {
+      "type": "string"
     }
   },
   "validations": [],

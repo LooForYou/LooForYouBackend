@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "looforyou_ds",
+    "public": true
   },
   "AccessToken": {
     "dataSource": "db",
@@ -35,8 +36,16 @@
     "dataSource": "db",
     "public": false
   },
+  "Account": {
+    "dataSource": "looforyou_ds",
+    "public": true
+  },
+  "Container": {
+    "dataSource": "amazonS3",
+    "public": true
+  },
   "Bathroom": {
-    "dataSource": "db",
+    "dataSource": "looforyou_ds",
     "public": true
   }
 }
