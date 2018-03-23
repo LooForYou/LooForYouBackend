@@ -2,5 +2,27 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "looforyou_ds": {
+    "host": "ec2-13-57-196-186.us-west-1.compute.amazonaws.com",
+    "port": 27017,
+    "database": "looforyou_db",
+    "username": "admin",
+    "password": "password",
+    "name": "looforyou_ds",
+    "connector": "mongodb"
+  },
+  "local-storage": {
+    "name": "local-storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "/home/ubuntu/Desktop/LooForYou"
+  },
+  "amazonS3": {
+    "name": "amazonS3",
+    "connector": "loopback-component-storage",
+    "provider": "amazon",
+    "key": "+f1Kqp8u+v58iXOLWEaRvuXMJslZgjPxSkRF7A1",
+    "keyId": "AKIAJ3XAUDI6HI7RWH7A"
   }
 }
