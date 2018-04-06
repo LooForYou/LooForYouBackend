@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "_meta": {
     "sources": [
@@ -15,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "looforyou_ds",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -35,54 +35,6 @@
   "Role": {
     "dataSource": "db",
     "public": false
-  },
-  "Bathroom": {
-    "dataSource": "db",
-    "public": true
-  }
-}
-=======
-{
-  "_meta": {
-    "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
-      "../common/models",
-      "./models"
-    ],
-    "mixins": [
-      "loopback/common/mixins",
-      "loopback/server/mixins",
-      "../common/mixins",
-      "./mixins"
-    ]
-  },
-  "User": {
-    "dataSource": "looforyou_ds",
-    "public": true
-  },
-  "AccessToken": {
-    "dataSource": "db",
-    "public": false
-  },
-  "ACL": {
-    "dataSource": "db",
-    "public": false
-  },
-  "RoleMapping": {
-    "dataSource": "db",
-    "public": false,
-    "options": {
-      "strictObjectIDCoercion": true
-    }
-  },
-  "Role": {
-    "dataSource": "db",
-    "public": false
-  },
-  "Account": {
-    "dataSource": "looforyou_ds",
-    "public": true
   },
   "Container": {
     "dataSource": "amazonS3",
@@ -91,6 +43,13 @@
   "Bathroom": {
     "dataSource": "looforyou_ds",
     "public": true
+  },
+  "Review": {
+    "dataSource": "looforyou_ds",
+    "public": true
+  },
+  "Account": {
+    "dataSource": "looforyou_ds",
+    "public": true
   }
 }
->>>>>>> 86cc5137946facef227554835d254ec20bbed97f

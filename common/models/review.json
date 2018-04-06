@@ -6,23 +6,33 @@
     "validateUpsert": true
   },
   "properties": {
-    "user_id": {
-      "type": "number",
-      "required": true
-    },
-    "bathroom_id": {
-      "type": "number",
-      "required": true
-    },
     "rating": {
-      "type": "number"
+      "type": "number",
+      "default": 0
     },
-    "description": {
+    "content": {
       "type": "string"
+    },
+    "time_created": {
+      "type": "date"
+    },
+    "time_updated": {
+      "type": "date"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignkey": ""
+    },
+    "bathroom": {
+      "type": "belongsTo",
+      "model": "Bathroom",
+      "foreignkey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

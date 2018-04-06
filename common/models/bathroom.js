@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-'use strict';
-
-module.exports = function(Bathroom) {
-//Define custom logic for model here
-};
-=======
 'use strict';
 var moment = require('moment-timezone');
 
@@ -49,6 +42,7 @@ module.exports = function(Bathroom) {
 						});
 					}
 					callback(null, result);
+		
 				}else{
 					var error = new Error();
 					error.message = 'Bathrooms not found.';
@@ -68,4 +62,3 @@ module.exports = function(Bathroom) {
 		//next();
 	//});
 };
->>>>>>> 86cc5137946facef227554835d254ec20bbed97f
