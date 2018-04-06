@@ -56,7 +56,7 @@
   },
   "validations": [],
   "relations": {
-    "reviews":{
+    "reviews": {
       "type": "hasMany",
       "model": "Account",
       "through": "Review",
@@ -64,6 +64,11 @@
     },
     "bookmarker": {
       "type": "hasAndBelongsToMany",
+      "model": "Account",
+      "foreignKey": ""
+    },
+    "submittedBy": {
+      "type": "belongsTo",
       "model": "Account",
       "foreignKey": ""
     }
