@@ -1,34 +1,48 @@
 {
   "name": "Account",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "AccountName": {
-      "type": "string",
-      "required": false
+    "first_name": {
+      "type": "string"
     },
-    "FirstName": {
-      "type": "string",
-      "required": true
+    "last_name": {
+      "type": "string"
     },
-    "LastName": {
-      "type": "string",
-      "required": true
-    },
-    "Password": {
-      "type": "string",
-      "required": true
-    },
-    "Email": {
-      "type": "string",
-      "required": true
+    "image_url": {
+      "type": "string"
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "reviews": {
+      "type": "hasMany",
+      "model": "Bathroom",
+      "through": "Review",
+      "foreignkey": ""
+    },
+    "bookmarks": {
+      "type": "hasAndBelongsToMany",
+      "model": "Bathroom",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }
