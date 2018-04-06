@@ -28,6 +28,11 @@
       "type": "hasAndBelongsToMany",
       "model": "Bathroom",
       "foreignKey": ""
+    },
+    "submitBathroom": {
+      "type": "hasMany",
+      "model": "Bathroom",
+      "foreignKey": ""
     }
   },
   "acls": [
