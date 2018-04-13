@@ -1,8 +1,15 @@
 'use strict';
 
 module.exports = function(Review) {
-    Review.beforeCreate = function (next, res){
-		res.time_created = Date.now();
-		next();
-	};
+    Review.observe('after save', function(context, next){
+			if (context.isNewInstance !== undefined){
+				if (context.isNewInstance){
+					context.instance.time_created = new Date();
+				}else{
+					context.instance.time_updated = new Date();
+				}
+			}
+
+			next();
+		});
 };
