@@ -56,11 +56,11 @@
   },
   "validations": [],
   "relations": {
-    "reviews": {
+    "submittedReviews": {
       "type": "hasMany",
       "model": "Account",
       "through": "Review",
-      "foreignkey": ""
+      "foreignkey": "bathroomId"
     },
     "bookmarker": {
       "type": "hasAndBelongsToMany",
@@ -70,7 +70,7 @@
     "submittedBy": {
       "type": "belongsTo",
       "model": "Account",
-      "foreignKey": ""
+      "foreignKey": "accountId"
     }
   },
   "acls": [],

@@ -18,21 +18,21 @@
   },
   "validations": [],
   "relations": {
-    "reviews": {
+    "submitReview": {
       "type": "hasMany",
       "model": "Bathroom",
       "through": "Review",
-      "foreignkey": ""
+      "foreignkey": "accountId"
     },
     "bookmarks": {
       "type": "hasAndBelongsToMany",
       "model": "Bathroom",
       "foreignKey": ""
     },
-    "submitBathroom": {
+    "submittedBathrooms": {
       "type": "hasMany",
       "model": "Bathroom",
-      "foreignKey": ""
+      "foreignKey": "bathroomId"
     }
   },
   "acls": [
