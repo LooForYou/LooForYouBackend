@@ -83,15 +83,34 @@ module.exports = function(Review) {
 		next();
 	});
 
-    // Review.observe('after save', function(context, next){
-	// 		if (context.isNewInstance !== undefined){
-	// 			if (context.isNewInstance){
-	// 				context.instance.time_created = new Date();
-	// 			}else{
-	// 				context.instance.time_updated = new Date();
-	// 			}
-	// 		}
+     Review.observe('after save', function(context, next){
+		 	var Bathroom = Review.app.models.Bathroom;
+			if (context.instance){
+				Review.find({where: {'bathroomId': context.instance.bathroomId}}, function(err, models){
+					if (err){
+						var error = new Error();
+               			error.message = 'Couldnt find reviews for bathroom!';
+						error.statusCode = 404;
+						console.log(error.toString());
+						next(error);
+					}else{
+						var sum = 0;
+						var count = 0;
+						for (var rev of models){
+							sum += rev.rating;
+							count++;
+						}
+						var average = sum / count;
+						Bathroom.updateAll({'id': context.instance.bathroomId}, {'rating': average}, )
+					}
+				});
+			}else{
+				next();
+			}
+	 });
 
-	// 		next();
-	// });
+	 Review.observe('after delete', function(context, next){
+
+		next();
+	 })
 };
