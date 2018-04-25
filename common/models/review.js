@@ -69,15 +69,29 @@ module.exports = function(Review) {
 		});
 	}
 
-    Review.observe('after save', function(context, next){
-			if (context.isNewInstance !== undefined){
-				if (context.isNewInstance){
-					context.instance.time_created = new Date();
-				}else{
-					context.instance.time_updated = new Date();
-				}
+	Review.observe('before save', function(context, next){
+		if (context.instance){
+			if (context.isNewInstance){
+				context.instance.time_created = new Date();
+			}else{
+				context.instance.time_updated = new Date();
 			}
+		}else{
+			context.data.time_updated = new Date();
+		}
 
-			next();
-		});
+		next();
+	});
+
+    // Review.observe('after save', function(context, next){
+	// 		if (context.isNewInstance !== undefined){
+	// 			if (context.isNewInstance){
+	// 				context.instance.time_created = new Date();
+	// 			}else{
+	// 				context.instance.time_updated = new Date();
+	// 			}
+	// 		}
+
+	// 		next();
+	// });
 };
