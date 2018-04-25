@@ -36,7 +36,7 @@ module.exports = function(Account) {
             }else{
                 if (exists){
                     Container.upload(req, res, {container: 'looforyouaccounts'}, function (containErr, result){
-                        if (err){
+                        if (containErr){
                             var error = new Error();
                             error.message = 'Upload Failed';
                             error.statusCode = 404;
