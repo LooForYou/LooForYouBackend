@@ -4,7 +4,8 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
-      "./models"
+      "./models",
+      "../node_modules/loopback-component-passport/lib/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -12,6 +13,18 @@
       "../common/mixins",
       "./mixins"
     ]
+  },
+  "ApplicationCredential": {
+    "datasource":"looforyou_ds",
+    "public": true
+  },
+  "UserCredential": {
+    "datasource": "looforyou_ds",
+    "public": true
+  },
+  "UserIdentity": {
+    "dataSource": "looforyou_ds",
+    "public": true
   },
   "User": {
     "dataSource": "looforyou_ds",
