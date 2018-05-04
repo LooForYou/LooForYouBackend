@@ -1,0 +1,42 @@
+{
+  "name": "Review",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rating": {
+      "type": "number",
+      "default": 0
+    },
+    "content": {
+      "type": "string"
+    },
+    "time_created": {
+      "type": "date"
+    },
+    "time_updated": {
+      "type": "date"
+    },
+    "likes": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {
+    "account": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignkey": ""
+    },
+    "bathroom": {
+      "type": "belongsTo",
+      "model": "Bathroom",
+      "foreignkey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

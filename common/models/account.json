@@ -1,0 +1,53 @@
+{
+  "name": "Account",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "submitReview": {
+      "type": "hasMany",
+      "model": "Bathroom",
+      "through": "Review",
+      "foreignkey": "accountId"
+    },
+    "bookmarks": {
+      "type": "hasAndBelongsToMany",
+      "model": "Bathroom",
+      "foreignKey": ""
+    },
+    "submittedBathrooms": {
+      "type": "hasMany",
+      "model": "Bathroom",
+      "foreignKey": "bathroomId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
