@@ -42,7 +42,7 @@ module.exports = function(Account) {
                             error.statusCode = 404;
                             cb(error);
                         }else{
-                            var url = 'http://ec2-54-183-105-234.us-west-1.compute.amazonaws.com:9000/api/Containers/looforyou/download/' + result.files[""][0].providerResponse.name;
+                            var url = 'http://ec2-54-183-105-234.us-west-1.compute.amazonaws.com:9000/api/Containers/looforyouaccounts/download/' + result.files["image"][0].providerResponse.name;
                             Account.updateAll(filter, {'image_url' : url}, function(accountErr, updateResult){
                                 if (err){
                                     var error = new Error();
@@ -50,14 +50,7 @@ module.exports = function(Account) {
                                     error.statusCode = 404;
                                      cb(error);
                                 }else{
-                                    if (updateResult.info.count > 0){
-                                        cb(null, result);
-                                    }else{
-                                        var error = new Error();
-                                        error.message = 'Nothing Updated';
-                                        error.statusCode = 404;
-                                        cb(error);
-                                    }
+                                     cb(null, result);
                                 }
                             });
                         }

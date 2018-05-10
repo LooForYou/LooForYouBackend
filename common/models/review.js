@@ -78,6 +78,7 @@ module.exports = function(Review) {
 		});
 	}
 
+
 	Review.observe('before save', function(context, next){
 		if (context.instance){
 			if (context.isNewInstance){
@@ -93,35 +94,51 @@ module.exports = function(Review) {
 	});
 
      Review.observe('after save', function(context, next){
-		 calculateRating(context, next);
+		 if (context.instance)
+		 	calculateRating(context.instance.bathroomId, next, null);
 	 });
 
-	 Review.observe('after delete', function(context, next){
-		calculateRating(context, next);
+	 Review.observe('before delete', function(context, next){
+		 if (context.where){
+			Review.findById(context.where.id, function(err, result){
+
+				calculateRating(result.bathroomId, next, result.id);
+			});
+	 	}
 	 })
 
-	 function calculateRating(context, next){
+	 function calculateRating(id, next, deletedId){
 		var Bathroom = Review.app.models.Bathroom;
-		if (context.instance){
-			Review.find({where: {'bathroomId': context.instance.bathroomId}}, function(reviewErr, models){
+		
+		Review.find({where: {'bathroomId': id, 'id': {neq: deletedId}}}, function(reviewErr, models){
 				if (reviewErr){
 					var error = new Error();
-					   error.message = 'Couldnt find reviews for bathroom!';
+					error.message = 'Couldnt find reviews for bathroom!';
 					error.statusCode = 404;
 					console.log(error.toString());
 					next(error);
 				}else{
 					var sum = 0;
 					var count = 0;
+
 					for (var rev of models){
+						console.log('Compare (' + rev.id + ', ' + deletedId + ')');
 						sum += rev.rating;
 						count++;
 					}
+
 					var average = sum / count;
-					Bathroom.updateAll({'id': context.instance.bathroomId}, {'rating': average}, function(bathroomErr, info){
+					
+					if (deletedId !== null){
+						console.log('Average is ' + average);
+						console.log('Sum is ' + sum);
+						console.log('Count is ' + count);
+					}
+
+					Bathroom.updateAll({'id': id}, {'rating': average}, function(bathroomErr, info){
 						if (bathroomErr){
 							var error = new Error();
-							   error.message = 'Could not update bathroom rating';
+							error.message = 'Could not update bathroom rating';
 							error.statusCode = 404;
 							console.log(error.toString());
 							next(error);
@@ -130,9 +147,6 @@ module.exports = function(Review) {
 						}
 					});
 				}
-			});
-		}else{
-			next();
-		}
+		});
 	 }
 };

@@ -7,6 +7,58 @@ module.exports = function(Bathroom) {
 		http: {path: '/formatted-bathrooms', verb: 'get'},
 		returns: {type: 'object', root: true}
 	});
+
+	Bathroom.remoteMethod('uploadImage', {
+        accepts:[
+            {arg: 'id', type: 'string', requried: true},
+            {arg: 'req', type: 'object', http: {source: 'req'}},
+            {arg: 'res', type: 'object', http: {source: 'res'}}
+        ],
+		http: {path: '/:id/upload-image', verb: 'post'},
+		returns: {type: 'object', root: true}
+    });
+    
+    Bathroom.uploadImage = function(id, req, res, cb){
+        var Container = Bathroom.app.models.Container;
+        var filter = {'id': id};
+        Bathroom.exists(id, function(err, exists){
+            if (error){
+                var error = new Error();
+                error.message = 'Bathroom not found!';
+                error.statusCode = 404;
+                cb(error);
+            }else{
+                if (exists){
+                    Container.upload(req, res, {container: 'looforyou'}, function (containErr, result){
+                        if (containErr){
+                            var error = new Error();
+                            error.message = 'Upload Failed';
+                            error.statusCode = 404;
+                            cb(error);
+                        }else{
+			    //console.log(result);
+                            var url = 'http://ec2-54-183-105-234.us-west-1.compute.amazonaws.com:9000/api/Containers/looforyou/download/' + result.files["image"][0].providerResponse.name;
+                        	Bathroom.updateAll(filter, {'image_url' : url}, function(bathroomErr, updateResult){
+                                if (bathroomErr){
+                                    var error = new Error();
+                                    error.message = 'Recording URL Failed';
+                                    error.statusCode = 404;
+                                     cb(error);
+                                }else{
+                                     cb(null, result);     
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    var error = new Error();
+                    error.message = 'Bathroom not found';
+                    error.statusCode = 404;
+                    cb(error);
+                }
+            }
+        });
+    }
 	
 	Bathroom.formattedBathrooms = function(callback){
 		Bathroom.find({}, function(err, res){
