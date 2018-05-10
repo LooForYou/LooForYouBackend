@@ -1,0 +1,11 @@
+// common/models/role.json
+{
+  "name": "role",
+  "plural": "roles",
+  "base": "Role",
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

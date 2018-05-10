@@ -1,0 +1,11 @@
+// common/models/scope.json
+{
+  "name": "scope",
+  "plural": "scopes",
+  "base": "Scope",
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

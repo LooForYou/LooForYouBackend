@@ -1,0 +1,17 @@
+// common/models/user-identity.json
+{
+    "name": "userIdentity",
+    "plural": "userIdentities",
+    "base": "UserIdentity",
+    "properties": {},
+    "validations": [],
+    "relations": {
+      "account": {
+        "type": "belongsTo",
+        "model": "Account",
+        "foreignKey": "accountId"
+      }
+    },
+    "acls": [],
+    "methods": []
+  }

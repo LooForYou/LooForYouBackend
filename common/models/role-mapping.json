@@ -1,0 +1,11 @@
+// common/models/role-mapping.json
+{
+    "name": "roleMapping",
+    "plural": "roleMappings",
+    "base": "RoleMapping",
+    "properties": {},
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": []
+  }

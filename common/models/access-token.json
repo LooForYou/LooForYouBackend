@@ -1,0 +1,11 @@
+// common/models/access-token.json 
+{
+  "name": "accessToken",
+  "plural": "accessTokens",
+  "base": "AccessToken",
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

@@ -22,7 +22,11 @@ boot(app, __dirname, function(err) {
 });
 
 //enable http session
-app.use(loopback.session({ secret: 'keyboard cat'}));
+app.use(loopback.session({ 
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitalized: true
+}));
 
 //attempto build the providers/passport config
 var config = {};
@@ -38,7 +42,7 @@ passportConfigurator.init();
 
 //set up related models
 passportConfigurator.setupModels({
-  userModel: app.models.user,
+  userModel: app.models.account,
   userIdentityModel: app.models.userIdentity,
   userCredentialModel: app.models.userCredential
 });
