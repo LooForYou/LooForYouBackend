@@ -35,29 +35,22 @@ module.exports = function(Account) {
                 cb(error);
             }else{
                 if (exists){
-                    Container.upload(req, res, {container: 'looforyouaccounts'}, function (err, result){
-                        if (err){
+                    Container.upload(req, res, {container: 'looforyouaccounts'}, function (containErr, result){
+                        if (containErr){
                             var error = new Error();
                             error.message = 'Upload Failed';
                             error.statusCode = 404;
                             cb(error);
                         }else{
-                            var url = 'http://ec2-54-183-105-234.us-west-1.compute.amazonaws.com:9000/api/Containers/looforyouaccounts/download/' + result.files[""][0].providerResponse.name;
-                            Account.updateAll(filter, {'image_url' : url}, function(err, updateResult){
+                            var url = 'http://ec2-54-183-105-234.us-west-1.compute.amazonaws.com:9000/api/Containers/looforyouaccounts/download/' + result.files["image"][0].providerResponse.name;
+                            Account.updateAll(filter, {'image_url' : url}, function(accountErr, updateResult){
                                 if (err){
                                     var error = new Error();
                                     error.message = 'Recording URL Failed';
                                     error.statusCode = 404;
                                      cb(error);
                                 }else{
-                                    if (updateResult.count > 0){
-                                        cb(null, result);
-                                    }else{
-                                        var error = new Error();
-                                        error.message = 'Nothing Updated';
-                                        error.statusCode = 404;
-                                        cb(error);
-                                    }
+                                     cb(null, result);
                                 }
                             });
                         }
