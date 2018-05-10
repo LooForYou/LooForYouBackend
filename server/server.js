@@ -1,6 +1,7 @@
 'use strict';
 
 var loopback = require('loopback');
+var path = require('path');
 var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
@@ -21,7 +22,7 @@ boot(app, __dirname, function(err) {
 });
 
 //enable http session
-app.use(loopback.session({secret: 'looforpoops'}));
+app.use(loopback.session({ secret: 'keyboard cat'}));
 
 //attempto build the providers/passport config
 var config = {};

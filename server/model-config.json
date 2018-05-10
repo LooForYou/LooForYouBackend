@@ -14,18 +14,6 @@
       "./mixins"
     ]
   },
-  "ApplicationCredential": {
-    "datasource":"looforyou_ds",
-    "public": true
-  },
-  "UserCredential": {
-    "datasource": "looforyou_ds",
-    "public": true
-  },
-  "UserIdentity": {
-    "dataSource": "looforyou_ds",
-    "public": true
-  },
   "User": {
     "dataSource": "looforyou_ds",
     "public": false
@@ -47,6 +35,14 @@
   },
   "Role": {
     "dataSource": "db",
+    "public": false
+  },
+  "UserCredential": {
+    "dataSource": "looforyou_ds",
+    "public": false
+  },
+  "UserIdentity": {
+    "dataSource": "looforyou_ds",
     "public": false
   },
   "Container": {
