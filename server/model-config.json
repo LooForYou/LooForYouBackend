@@ -5,7 +5,6 @@
       "loopback/server/models",
       "../common/models",
       "./models",
-      "../node_modules/loopback-component-passport/lib/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -60,34 +59,5 @@
   "Account": {
     "dataSource": "looforyou_ds",
     "public": true
-  },
-  "userCredential": {
-    "dataSource": "looforyou_ds",
-    "public": true
-  },
-  "userIdentity": {
-    "dataSource": "looforyou_ds",
-    "public": true
-  },
-  "accessToken": {
-    "dataSource": "db",
-    "public": true
-  },
-  "acl": {
-    "dataSource": "db",
-    "public": true
-  },
-  "roleMapping": {
-    "dataSource": "db",
-    "public": true
-  },
-  "role": {
-    "dataSource": "db",
-    "public": true
-  },
-  "scope": {
-    "dataSource": "db",
-    "public": true
   }
-
 }
