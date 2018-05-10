@@ -4,12 +4,8 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
-<<<<<<< HEAD
       "./models",
       "../node_modules/loopback-component-passport/lib/models"
-=======
-      "./models"
->>>>>>> master-holder
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -18,7 +14,6 @@
       "./mixins"
     ]
   },
-<<<<<<< HEAD
   "ApplicationCredential": {
     "datasource":"looforyou_ds",
     "public": true
@@ -31,8 +26,6 @@
     "dataSource": "looforyou_ds",
     "public": true
   },
-=======
->>>>>>> master-holder
   "User": {
     "dataSource": "looforyou_ds",
     "public": false
