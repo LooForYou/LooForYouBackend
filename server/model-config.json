@@ -4,7 +4,7 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
-      "./models"
+      "./models",
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -34,6 +34,14 @@
   },
   "Role": {
     "dataSource": "db",
+    "public": false
+  },
+  "UserCredential": {
+    "dataSource": "looforyou_ds",
+    "public": false
+  },
+  "UserIdentity": {
+    "dataSource": "looforyou_ds",
     "public": false
   },
   "Container": {

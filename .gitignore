@@ -16,8 +16,5 @@
 .strong-pm
 coverage
 node_modules
-npm-debug
-.log
-*.pem
-*.ppk
+npm-debug.log
 datasources.json
