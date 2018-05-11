@@ -14,6 +14,16 @@
     },
     "image_url": {
       "type": "string"
+    },
+    "identities": {
+      "type": "hasMany",
+      "model": "userIdentity",
+      "foreignKey": "accountId"
+    },
+    "credentials": {
+      "type": "hasMany",
+      "model": "userCredential",
+      "foreignKey": "accountId"
     }
   },
   "validations": [],
