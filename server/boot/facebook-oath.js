@@ -6,6 +6,7 @@ module.exports = function(app) {
   var passportConfigurator = new PassportConfigurator(app);
 
   passportConfigurator.init();
+  
   passportConfigurator.setupModels({
     userModel: app.models.Account,
     userIdentityModel: app.models.UserIdentity,

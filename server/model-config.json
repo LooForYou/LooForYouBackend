@@ -60,5 +60,13 @@
   "Account": {
     "dataSource": "looforyou_ds",
     "public": true
+  },
+  "userCredential": {
+    "dataSource": "db",
+    "public": true
+  },
+  "userIdentity": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -30,7 +30,20 @@
       "enabled": false
     }
   },
-  "session": {},
+  "session:before": {
+    "cookie-parser": {
+      "params": "cookiepoosecret"
+    }
+  },
+  "session": {
+    "express-session": {
+      "params": {
+        "secret": "sessionpoosecret",
+        "saveUninitialized": true,
+        "resave": true
+      }
+    }
+  },
   "auth": {},
   "parse": {},
   "routes": {
