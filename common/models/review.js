@@ -94,8 +94,12 @@ module.exports = function(Review) {
 	});
 
      Review.observe('after save', function(context, next){
-		 if (context.instance)
+ 
+		if (context.isNewInstance){
 		 	calculateRating(context.instance.bathroomId, next, null);
+		 }else{
+			calculateRating(context.data.bathroomId, next, null);
+		 }
 	 });
 
 	 Review.observe('before delete', function(context, next){
@@ -105,7 +109,7 @@ module.exports = function(Review) {
 				calculateRating(result.bathroomId, next, result.id);
 			});
 	 	}
-	 })
+	 });
 
 	 function calculateRating(id, next, deletedId){
 		var Bathroom = Review.app.models.Bathroom;
@@ -122,18 +126,12 @@ module.exports = function(Review) {
 					var count = 0;
 
 					for (var rev of models){
-						console.log('Compare (' + rev.id + ', ' + deletedId + ')');
 						sum += rev.rating;
 						count++;
 					}
 
 					var average = sum / count;
 					
-					if (deletedId !== null){
-						console.log('Average is ' + average);
-						console.log('Sum is ' + sum);
-						console.log('Count is ' + count);
-					}
 
 					Bathroom.updateAll({'id': id}, {'rating': average}, function(bathroomErr, info){
 						if (bathroomErr){
