@@ -13,6 +13,9 @@
     "rating": {
       "type": "number"
     },
+    "type": {
+      "type": "string"
+    },
     "latitude": {
       "type": "number"
     },
