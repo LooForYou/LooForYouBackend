@@ -7,6 +7,6 @@
       "callbackURL": "https://localhost:9000/auth/facebook/callback",
       "authPath": "/auth/facebook",
       "callbackPath": "/auth/facebook/callback",
-      "scope": ["public_profile"]
+      "profileFields": ["gender","link","locale","name","timezone","verified","email","updated_time"]
     }
   }

@@ -78,7 +78,7 @@ module.exports = function(Bathroom) {
 							"name": res[i].name,
 							"id" : res[i].id,
 							"rating" : res[i].rating,
-							"clean_rating" : res[i].clean_rating,
+							"type" : res[i].type,
 							"latitude" : res[i].latitude,
 							"longitude" : res[i].longitude,
 							"address" : res[i].address,
