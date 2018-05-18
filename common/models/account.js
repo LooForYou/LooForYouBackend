@@ -1,19 +1,11 @@
 'use strict';
-// const multiparty = require('multiparty');
-
-// const getFileFromRequest = (req) => new Promise((resolve, reject) => {
-//     const form = new multiparty.Form();
-//     form.parse(req, (err, fields, files) =>{
-//         if (err) reject(err);
-//         const file = files['file'][0];
-//         if (!file) Promise.reject('File was not found in form data.');
-//         else resolve(file);
-//     });
-// });
-
 
 module.exports = function(Account) {
 
+    /**
+     * Declaration for uploading images 
+     * Specifies endpoint path to be /{Account ID}/upload-image
+     */
     Account.remoteMethod('uploadImage', {
         accepts:[
             {arg: 'id', type: 'string', requried: true},
@@ -24,17 +16,30 @@ module.exports = function(Account) {
 		returns: {type: 'object', root: true}
     });
     
+    /**
+     * Implementation for uploading images
+     * 
+     * @param {id of account} id 
+     * @param {request with image data used for Container Model} req 
+     * @param {response of image upload used for Container Model} res 
+     * @param {callback function} cb 
+     */
     Account.uploadImage = function(id, req, res, cb){
         var Container = Account.app.models.Container;
         var filter = {'id': id};
+
+        //Checks if account with given id exists
+        //If the account is found, exists is true
+        //otherwise it is false. 
         Account.exists(id, function(err, exists){
-            if (error){
+            if (err){
                 var error = new Error();
                 error.message = 'Account not found!';
                 error.statusCode = 404;
                 cb(error);
             }else{
                 if (exists){
+                    //Upload the image to our s3 storage using a Container Model which is built-in
                     Container.upload(req, res, {container: 'looforyouaccounts'}, function (containErr, result){
                         if (containErr){
                             var error = new Error();
@@ -43,6 +48,8 @@ module.exports = function(Account) {
                             cb(error);
                         }else{
                             var url = 'http://ec2-54-183-105-234.us-west-1.compute.amazonaws.com:9000/api/Containers/looforyouaccounts/download/' + result.files["image"][0].providerResponse.name;
+                           //If Container Model successfully uploads the image then updates the Accounts database
+                           //with the url of the image
                             Account.updateAll(filter, {'image_url' : url}, function(accountErr, updateResult){
                                 if (err){
                                     var error = new Error();
