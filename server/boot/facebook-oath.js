@@ -8,7 +8,7 @@ module.exports = function(app) {
   passportConfigurator.init();
   
   passportConfigurator.setupModels({
-    userModel: app.models.Account,
+    userModel: app.models.User,
     userIdentityModel: app.models.UserIdentity,
     userCredentialModel: app.models.UserCredential
   });
